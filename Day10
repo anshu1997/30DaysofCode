@@ -1,0 +1,32 @@
+using namespace std;
+
+int main()
+{
+ int num,num2,count,countmax;
+ vector<int> arr;
+ cin>>num;
+ num2=num;
+ int i=0,r;
+ while(num!=0)
+{
+  r = num%2;
+  arr.push_back(r);
+  num /= 2;
+  i++;
+}
+if(num2==0)countmax=0;
+else{
+    countmax=1;
+    count=1;
+    //i is the length of the Binary number
+    for(int j=i-1;j>=0;j--){
+     while(arr[j]){count++;
+                   --j;
+          }
+     if(count-1>countmax)
+          countmax=count-1;
+     count=1;
+ }
+}
+    cout<<countmax;
+}
