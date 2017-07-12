@@ -1,0 +1,33 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    string S;
+    int i,len,t;
+    cin>>t;
+    while(t){
+     cin>>S;
+     i=0;
+    while(S[i]!='\0'){
+      i++;  
+    }
+    len=i;
+    for(i=0;i<len;i++){
+        if(i%2==0)
+            cout<<S[i];
+    }
+    cout<<" ";
+    for(i=0;i<len;i++){
+        if(i%2)
+            cout<<S[i];
+    }
+    cout<<"\n";
+    --t;
+    }
+    return 0;
+}
