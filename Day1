@@ -1,0 +1,18 @@
+int main(){
+    int i=4,i2;
+    double d=4.0,d2;
+    string s="Hackerrank",s2;
+    cin>>i2;
+    cin>>d2;
+    cin.ignore();
+    getline(cin,s2);
+    // Print the sum of both integer variables on a new line.
+    cout<<i+i2<<endl;
+    cout << fixed << setprecision(1) << d+d2 << endl;
+    // Print the sum of the double variables on a new line.
+    // Concatenate and print the String variables on a new line
+    cout<<s;
+    cout<<s2;
+    // The 's' variable above should be printed first.
+return 0;
+}
