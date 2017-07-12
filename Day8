@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+using namespace std;
+
+
+int main() { 
+    map<string,int>m;
+    int i,n,mks;string str;
+    cin>>n;
+    for(i=0;i<n;i++){
+       cin>>str>>mks;
+       m.insert(make_pair(str,mks)); 
+    }
+    while(cin>>str){
+    map<string,int>::iterator itr=m.find(str);
+    if(itr==m.end()){
+        cout<<"Not found\n";
+    }
+    else{
+        cout<<str<<"="<<itr->second<<"\n"; //Prints the marks
+    }
+   }
+  return 0;
+}
