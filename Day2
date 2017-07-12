@@ -1,0 +1,22 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    double a,b,c;
+    cin>>a;
+    cin>>b;
+    cin>>c;
+    c=a+(b*a/100)+(c*a/100);
+    b=c-(int)c;
+    if(b>0.5)
+        cout<<"The total meal cost is "<<(int)c+1<<" dollars.";
+    else
+        cout<<"The total meal cost is "<<(int)c<<" dollars.";
+    return 0;
+}
