@@ -1,0 +1,29 @@
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int dr,mr,yr,de,me,ye;
+    cin>>dr>>mr>>yr;
+    cin>>de>>me>>ye;
+    if(ye<yr)
+        cout<<10000;
+    else{
+        if(yr==ye){
+            if(mr>me)
+                cout<<500*(mr-me);
+            else if(mr==me){
+                if(dr>de)
+                    cout<<15*(dr-de);
+                else
+                    cout<<0;
+            }
+            else
+                cout<<0;
+        }
+        else
+            cout<<0;
+    }
+    
+    return 0;
+}
