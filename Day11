@@ -1,0 +1,22 @@
+using namespace std;
+//Print hour glass
+
+int main(){
+    vector< vector<int> > arr(6,vector<int>(6));
+    vector<int> v;int s;
+    for(int arr_i = 0;arr_i < 6;arr_i++){
+       for(int arr_j = 0;arr_j < 6;arr_j++){
+          cin >> arr[arr_i][arr_j];
+       }
+    }
+    for(int arr_i = 0;arr_i < 4;arr_i++){
+       for(int arr_j = 0;arr_j < 4;arr_j++){
+          s=0;
+          s+=arr[arr_i][arr_j]+arr[arr_i][arr_j+1]+arr[arr_i][arr_j+2]+arr[arr_i+2][arr_j]+arr[arr_i+2][arr_j+1]+arr[arr_i+2][arr_j+2]+arr[arr_i+1][arr_j+1];
+          v.push_back(s);
+       }
+    }
+    sort(v.begin(),v.end());
+    cout<<v[v.size()-1];
+    return 0;
+}
