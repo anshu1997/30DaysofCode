@@ -1,0 +1,19 @@
+using namespace std;
+
+
+int main() {
+    int n,k,max,t,i,j;
+    cin>>t;
+    while(t--){
+        max=0;
+        cin>>n>>k;
+        for(i=1;i<=n;i++){
+            for(j=i+1;j<=n;j++){
+                if((i&j)>max&&(i&j)<k)
+                    max=i&j;
+            }
+        }
+        cout<<max<<endl;
+    }
+    return 0;
+}
