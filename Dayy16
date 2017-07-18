@@ -1,0 +1,17 @@
+using namespace std;
+
+
+int main(){
+    string S;
+    int i;
+    cin >> S;
+    try{
+        i=stoi(S);
+        cout<<i;
+    }catch(invalid_argument e){
+        cout<<"Bad String";
+    }catch(out_of_range e2){
+        cout<<"Bad String";
+    }
+    return 0;
+}
