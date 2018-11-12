@@ -1,25 +1,23 @@
-'''cpp
-#include <bits/stdc++.h>
+	#include <bits/stdc++.h>
 
-#define ll long long
+	#define ll long long
 
-using namespace std;
+	using namespace std;
 
-int main()
-{
+	int main()
+	{
 
-	ll t;
+		ll t;
 
-	cin>>t;
+		cin>>t;
 
-	while(t--){
+		while(t--){
 
-		ll a,b;
-		cin>>a>>b;
+			ll a,b;
+			cin>>a>>b;
 
-		cout<<"YES"<<endl;
+			cout<<"YES"<<endl;
+
+		}
 
 	}
-
-}
-'''
