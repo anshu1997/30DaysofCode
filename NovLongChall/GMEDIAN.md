@@ -1,11 +1,11 @@
-Since we have to sort each subsequence to find its median, we will sort our original sequence (i.e. A1,A2,…,AN) at first itself. The ordering won't change. 
+Since we have to sort each subsequence to find its median, we will sort our original sequence (i.e. A1,A2,…,AN) at first itself. The ordering won't change.<br>
 For example, the good (desired) subsequences in the sequence [9,5,7,6,8,1] are same as that in the sequence [1,5,6,7,8,9].
 
 The subsequences having odd length will definitely qualify to be one of our good subsequence.
 
-<b> Even Length </b>: The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. 
-Let the repeating elements be found at index i and j Suppose, there are m elements at the left of the index i and n elements at the right of index j.
-So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (good subsequences of length 4) + mC2∗nC2 (good subsequences of length 6) + ........... + mCmin(m,n)∗nC(min(m,n)) = <b>(m+n)C(min(m,n))</b>
+<b> Even Length </b>: The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. <br>
+Let the repeating elements be found at index i and j Suppose, there are m elements at the left of the index i and n elements at the right of index j.<br>
+So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (good subsequences of length 4) + mC2∗nC2 (good subsequences of length 6) + ........... + mCmin(m,n)∗nC(min(m,n)) = <b>(m+n)C(min(m,n))</b><br>
 
 ```
 #include <bits/stdc++.h>
@@ -76,4 +76,4 @@ int main() {
 	return 0;
 }
 ```
-Bonus: Calculating queries of the type nCr % 1000000007 can be solved by precalculating nCr upto n = whatever you need. Details of this can be found here: nCr % p in O(1)
+Bonus: Calculating queries of the type nCr % 1000000007 can be solved by precalculating nCr upto n = whatever you need. Details of this can be found here: nCr % p in O(1).
