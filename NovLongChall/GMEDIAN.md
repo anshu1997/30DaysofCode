@@ -3,8 +3,7 @@ For example, the good (desired) subsequences in the sequence [9,5,7,6,8,1] are s
 
 The subsequences having odd length will definitely qualify to be one of our good subsequence.
 
-<b> Even Length </b>: The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. <br>
-Let the repeating elements be found at index i and j Suppose, there are m elements at the left of the index i and n elements at the right of index j.<br>
+<b> Even Length </b>: The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. Let the repeating elements be found at index i and j Suppose, there are m elements at the left of the index i and n elements at the right of index j.<br>
 So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (good subsequences of length 4) + mC2∗nC2 (good subsequences of length 6) + ........... + mCmin(m,n)∗nC(min(m,n)) = <b>(m+n)C(min(m,n))</b><br>
 
 ```
