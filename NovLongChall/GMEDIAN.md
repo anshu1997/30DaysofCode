@@ -3,11 +3,9 @@ For example, the good (desired) subsequences in the sequence [9,5,7,6,8,1] are s
 
 The subsequences having odd length will definitely qualify to be one of our good subsequence.
 
-### Even Length
-The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. 
+<b> Even Length </b>: The subsequences with even length will qualify as good subsequence if and only if the middle two elements are same. 
 Let the repeating elements be found at index i and j Suppose, there are m elements at the left of the index i and n elements at the right of index j.
-So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (good subsequences of length 4) + mC2∗nC2 (good subsequences of length 6) + ........... + mCmin(m,n)∗nC(min(m,n))
-## (m+n)C(min(m,n))
+So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (good subsequences of length 4) + mC2∗nC2 (good subsequences of length 6) + ........... + mCmin(m,n)∗nC(min(m,n)) = <b>(m+n)C(min(m,n))</b>
 
 ```
 #include <bits/stdc++.h>
@@ -78,4 +76,4 @@ int main() {
 	return 0;
 }
 ```
-Bonus: Calculating queries of the type nCr % 1000000007 can be solved by precalculating nCr upto n = whatever you need :p . Details of this can be found here: nCr % p in O(1)
+Bonus: Calculating queries of the type nCr % 1000000007 can be solved by precalculating nCr upto n = whatever you need. Details of this can be found here: nCr % p in O(1)
