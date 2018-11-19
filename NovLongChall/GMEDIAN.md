@@ -12,63 +12,81 @@ So, number of good subsequences: 1 (good subsequence of length 2) + mC1∗nC1 (g
 #define pb push_back
 #define DIV 1000000007
 using namespace std;
-ll factorial(ll n)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const int N = 2001;
+ll factorialNumInverse[N + 1];
+// array to precompute inverse of 1! to N!
+ll naturalNumInverse[N + 1];
+// array to store factorial of first N numbers
+ll fact[N + 1];
+// Function to precompute inverse of numbers
+void InverseofNumber(ll p)
 {
-	ll i;
-	if((n==0)||(n==1))
-		return 1;
-	for(i = n-1; i > 0; i--)
-		n=(n*i)%DIV;
-	return n;
+    naturalNumInverse[0] = naturalNumInverse[1] = 1;
+    for (long long  i = 2; i <= N; i++)
+        naturalNumInverse[i] = naturalNumInverse[p % i] * (p - p / i) % p;
 }
-ll ncr(ll n,ll r){
-	ll result = ((factorial(n)%DIV)/(((factorial(r)%DIV)*(factorial(n-r)%DIV))%DIV))%DIV;
-	return result;
+// Function to precompute inverse of factorials
+void InverseofFactorial(ll p)
+{
+    factorialNumInverse[0] = factorialNumInverse[1] = 1;
+    // precompute inverse of natural numbers
+    for (long long  i = 2; i <= N; i++)
+        factorialNumInverse[i] = (naturalNumInverse[i] * factorialNumInverse[i - 1]) % p;
 }
+// Function to calculate factorial of 1 to N
+void factorial(ll p)
+{
+    fact[0] = 1;
+    // precompute factorials
+    for (long long  i = 1; i <= N; i++) {
+        fact[i] = (fact[i - 1] * i) % p;
+    }
+}
+// Function to return nCr % p in O(1) time
+ll Binomial(ll N, ll R, ll p)
+{
+    // n C r = n!*inverse(r!)*inverse((n-r)!)
+    ll ans = ((fact[N] * factorialNumInverse[R])
+              % p * factorialNumInverse[N - R])
+             % p;
+    return ans;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
 	ll t;
 	cin>>t;
+	InverseofNumber(DIV);
+    InverseofFactorial(DIV);
+    factorial(DIV);
 	while(t--){
 		ll n;
 		cin>>n;
-		vector <ll> v(n,0),temp;
-		vector <vector<ll> > hash(2001,temp);
+		vector <ll> v(n,0);
+		
 		for(ll i=0;i<n;i++){
 			cin>>v[i];
-			hash[v[i]].pb(i);
 		}
+		sort(v.begin(),v.end());
 		
-		/*DISPLAY hash
-		for(ll i=0;i<2001;i++){
-			if(hash[i].size()){
-				cout<<i<<":  ";
-			  for(ll j=0;j<hash[i].size();j++){
-			  	cout<<hash[i][j]<<" ";
-			  }
-			  cout<<endl;
-		    }
-		}*/
 		ll sum=1;
 		for(ll i=0;i<n-1;i++){
 			sum=(sum*2)%DIV;
 		}
 		
-		for(ll i=0;i<2001;i++){
-			if(hash[i].size()>1){
-				//cout<<i<<endl;
-				for(ll j=0;j<hash[i].size();j++){
-					ll lessno=hash[i][j];
-					for(ll k=j+1;k<hash[i].size();k++){
-						sum=(sum+1)%DIV;
-						ll moreno=n-hash[i][k]-1;
-						ll mini=min(lessno,moreno);
-						for(ll h=1;h<=mini;h++){
-							sum=(sum+(ncr(lessno,h)*ncr(moreno,h))%DIV)%DIV;
-						}
-					}
-				}
-			}
+		for(ll i=0;i<n-1;i++){
+			ll j=i+1;
+			while(v[i]==v[j]){
+                 ll mini=min(i,n-j-1);
+                 ll temp=Binomial(i+n-j-1,mini,DIV);
+                 sum=(sum+temp)%DIV;
+                 j++;
+             }
+			
 		}
 		cout<<sum<<endl;
 	}
