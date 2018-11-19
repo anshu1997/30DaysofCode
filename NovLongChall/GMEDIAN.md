@@ -49,9 +49,7 @@ void factorial(ll p)
 ll Binomial(ll N, ll R, ll p)
 {
     // n C r = n!*inverse(r!)*inverse((n-r)!)
-    ll ans = ((fact[N] * factorialNumInverse[R])
-              % p * factorialNumInverse[N - R])
-             % p;
+    ll ans = ((fact[N] * factorialNumInverse[R]) % p * factorialNumInverse[N - R]) % p;
     return ans;
 }
 
