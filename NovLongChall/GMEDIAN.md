@@ -58,7 +58,7 @@ ll Binomial(ll N, ll R, ll p)
 int main() {
 	ll t;
 	cin>>t;
-	InverseofNumber(DIV);
+    InverseofNumber(DIV);
     InverseofFactorial(DIV);
     factorial(DIV);
 	while(t--){
